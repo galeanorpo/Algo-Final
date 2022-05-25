@@ -281,6 +281,7 @@ void operacionesMatrices(){
 }
 
 void opMatrices(){
+	string menu = "Que operacion desea realizar con las matrices? \n 1. Sumar \n 2. Restar \n 3. Multiplicacion \n 4. Multiplicacion por un escalar \n 5. Salir";
 	int dimensionF, dimensionCol;
 	int opMatrices;
 	int suma, resta, multplicacion, escalar;
@@ -288,6 +289,9 @@ void opMatrices(){
 	cin>>dimensionF;
 	cout<<"Digite la dimension de las columnas"<<endl;
 	cin>>dimensionCol;
+	
+	
+	
 	int m1[dimensionF][dimensionCol];
 	int m2[dimensionF][dimensionCol];
 	//llenamos matrices
@@ -321,92 +325,207 @@ void opMatrices(){
 	}
 	system("pause");
 	system("cls"); 
-	cout<<"Que operacion desea realizar con las matrices? \n 1. Sumar \n 2. Restar \n 3. Multiplicacion \n 4. Multiplicacion por un escalar \n 5. Salir"<<endl;
-	cin>>opMatrices;
-	switch(opMatrices){
-		case 1:
-			system("cls");
-			cout<<"El resultado de la suma de las matrices es de: "<<endl; 
-			for(int i = 0; i <dimensionF; i++){
-				for(int j = 0; j<dimensionCol; j++){
-						m1[i][j]+=m2[i][j];
-					}
-				}
-			for(int i = 0; i <dimensionF; i++){
-				for(int j = 0; j<dimensionCol; j++){
-						cout<<m1[i][j]<<" ";
-					}
-					cout<<endl;
-				}
-				system("pause");
+	if(dimensionF % 1 == 0 && dimensionCol % 1 == 0){
+		menu = "Que operacion desea realizar con las matrices? \n 1. Sumar \n 2. Restar \n 3. Multiplicacion \n 4. Multiplicacion por un escalar \n 5. Suma de diagonales \n 6. Salir";
+		cout<<menu<<endl;
+		cin>>opMatrices;
+		switch(opMatrices){
+			case 1:
 				system("cls");
-				menu2();
-			break;
-		case 2:
-			system("cls");
-			cout<<"El resultado de la resta de las matrices es de: "<<endl; 
-			for(int i = 0; i <dimensionF; i++){
-				for(int j = 0; j<dimensionCol; j++){
-						m1[i][j]-=m2[i][j];
-					}
-				}
-			for(int i = 0; i <dimensionF; i++){
-				for(int j = 0; j<dimensionCol; j++){
-						cout<<m1[i][j]<<" ";
-					}
-					cout<<endl;
-				}
-				system("pause");
-				system("cls");
-				menu2();
-			break;
-		case 3:
-			system("cls");
-			cout<<"El resultado de la multiplicacion de las matrices es de: "<<endl; 
-			for(int i = 0; i <dimensionF; i++){
-				for(int j = 0; j<dimensionCol; j++){
-						m1[i][j]*=m2[i][j];
-					}
-				}
-			for(int i = 0; i <dimensionF; i++){
-				for(int j = 0; j<dimensionCol; j++){
-						cout<<m1[i][j]<<" ";
-					}
-					cout<<endl;
-				}
-				system("pause");
-				system("cls");
-				menu2();
-			break;
-		case 4:
-				system("cls");
-				cout<<"Ingrese el escalar: "<<endl;
-				cin>>escalar;
-				cout<<"El resultado de la multiplicacion por un escalar es de: "<<endl;
+				cout<<"El resultado de la suma de las matrices es de: "<<endl; 
 				for(int i = 0; i <dimensionF; i++){
 					for(int j = 0; j<dimensionCol; j++){
-						m1[i][j]*=m2[i][j]*escalar;
+							m1[i][j]+=m2[i][j];
+						}
 					}
-				}
 				for(int i = 0; i <dimensionF; i++){
 					for(int j = 0; j<dimensionCol; j++){
-						cout<<m1[i][j]<<" ";
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
 					}
-					cout<<endl;
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 2:
+				system("cls");
+				cout<<"El resultado de la resta de las matrices es de: "<<endl; 
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]-=m2[i][j];
+						}
+					}
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 3:
+				system("cls");
+				cout<<"El resultado de la multiplicacion de las matrices es de: "<<endl; 
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]*=m2[i][j];
+						}
+					}
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 4:
+					system("cls");
+					cout<<"Ingrese el escalar: "<<endl;
+					cin>>escalar;
+					cout<<"El resultado de la multiplicacion por un escalar es de: "<<endl;
+					for(int i = 0; i <dimensionF; i++){
+						for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]*=m2[i][j]*escalar;
+						}
+					}
+					for(int i = 0; i <dimensionF; i++){
+						for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 5: 
+				system("cls");
+				if(dimensionF % 1 == 0 && dimensionCol % 1 == 0){
+					cout<<"Las dimensiones de la matriz son cuadradas..."<<endl;
+					for(int i = 0; i <dimensionF; i++){
+						for(int j = 0; j<dimensionCol; j++){
+							if(i==j){
+								m1[i][j]+=m2[i][j];
+							}else{
+								m1[i][j]=0;
+							}
+						
+						}
+					}
+					for(int i = 0; i <dimensionF; i++){
+						for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+				}else{
+					cout<<"Las dimensiones de la matriz no son cuadradas..."<<endl;
 				}
 				system("pause");
 				system("cls");
 				menu2();
-			break;
-		case 5:
-			system("cls");
-			menu2();
-			break;
-		default:
-			cout<<"Digite una opcion correcta..."<<endl;
-			break;
+				break;
+			case 6:
+				system("cls");
+				menu2();
+				break;
+			default:
+				cout<<"Digite una opcion correcta..."<<endl;
+				break;
+			}
+	}else{
+		cout<<menu<<endl;
+		cin>>opMatrices;
+		switch(opMatrices){
+			case 1:
+				system("cls");
+				cout<<"El resultado de la suma de las matrices es de: "<<endl; 
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]+=m2[i][j];
+						}
+					}
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 2:
+				system("cls");
+				cout<<"El resultado de la resta de las matrices es de: "<<endl; 
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]-=m2[i][j];
+						}
+					}
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 3:
+				system("cls");
+				cout<<"El resultado de la multiplicacion de las matrices es de: "<<endl; 
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]*=m2[i][j];
+						}
+					}
+				for(int i = 0; i <dimensionF; i++){
+					for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 4:
+					system("cls");
+					cout<<"Ingrese el escalar: "<<endl;
+					cin>>escalar;
+					cout<<"El resultado de la multiplicacion por un escalar es de: "<<endl;
+					for(int i = 0; i <dimensionF; i++){
+						for(int j = 0; j<dimensionCol; j++){
+							m1[i][j]*=m2[i][j]*escalar;
+						}
+					}
+					for(int i = 0; i <dimensionF; i++){
+						for(int j = 0; j<dimensionCol; j++){
+							cout<<m1[i][j]<<" ";
+						}
+						cout<<endl;
+					}
+					system("pause");
+					system("cls");
+					menu2();
+				break;
+			case 5:
+				system("cls");
+				menu2();
+				break;
+			default:
+				cout<<"Digite una opcion correcta..."<<endl;
+				break;
+			}
 	}
-	
 }
 
 void menu(){
